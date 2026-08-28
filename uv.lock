@@ -14,7 +14,6 @@ resolution-markers = [
 members = [
     "backend",
     "eclipsebord-fastlydep-anja-scherwall",
-    "eda",
     "frontend",
 ]
 
@@ -384,11 +383,6 @@ wheels = [
 name = "eclipsebord-fastlydep-anja-scherwall"
 version = "0.1.0"
 source = { virtual = "." }
-
-[[package]]
-name = "eda"
-version = "0.1.0"
-source = { editable = "EDA" }
 dependencies = [
     { name = "duckdb" },
     { name = "ipykernel" },
