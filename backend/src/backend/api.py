@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.data_processing import df, eclipse_total_time
+from backend.data_processing import df, eclipse_total_time, eclipse_avg_time
 
 app = FastAPI()
 
@@ -11,3 +11,21 @@ async def show_data(limit: int = 10):
 @app.get("/lunar/eclipse_time")
 async def eclipse_time():
     return eclipse_total_time().to_dict()
+
+
+@app.get("/lunar/eclipse_avg_time")
+async def avg_eclipse_time():
+    return eclipse_avg_time()
+
+@app.get("/lunar/types")
+async def eclipse_types():
+    return df["Eclipse_Type"].to_dict()
+
+@app.get("/lunar/group_types")
+async def eclipse_types():
+    return df["Eclipse_Group_Type"].to_dict()
+
+
+@app.get("/lunar/lunar_amount")
+async def amount_of_eclipse():
+    return len(df)
