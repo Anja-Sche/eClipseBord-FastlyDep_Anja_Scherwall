@@ -14,12 +14,12 @@ df["Century"] = df["Century"].apply(century_name)
 
 
 # Calculate the total time of an eclipse
-def eclipse_total_time():
+def eclipse_total_time(df):
     return df["Penumbral_Eclipse_Duration_(m)"] + df["Partial_Eclipse_Duration_(m)"] + df["Total_Eclipse_Duration_(m)"]
 
 # Calculate the average time of the eclipses
-def eclipse_avg_time():
-    total_time = eclipse_total_time()
+def eclipse_avg_time(df):
+    total_time = eclipse_total_time(df)
     avg_time = total_time.mean()
     return avg_time
 
@@ -31,3 +31,6 @@ def century_interval(start_century, end_century):
     return filtered_century
 
 
+def century_avg_time(start=df["Century_nr"].min(), end=df["Century_nr"].max()):
+    df_filtered = century_interval(start, end)
+    return eclipse_avg_time(df_filtered)
