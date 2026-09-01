@@ -1,5 +1,5 @@
 from fastapi import FastAPI
-from backend.data_processing import df, eclipse_total_time, eclipse_avg_time
+from backend.data_processing import df, eclipse_total_time, eclipse_avg_time, century_interval
 
 app = FastAPI()
 
@@ -29,3 +29,7 @@ async def eclipse_types():
 @app.get("/lunar/lunar_amount")
 async def amount_of_eclipse():
     return len(df)
+
+@app.get("/lunar/century_limit")
+async def century_limit(start, end):
+    return century_interval(start, end).to_dict()

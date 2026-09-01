@@ -22,5 +22,12 @@ def eclipse_avg_time():
     total_time = eclipse_total_time()
     avg_time = total_time.mean()
     return avg_time
-    
+
+# Choose interval of centuries
+def century_interval(start_century, end_century):
+    start =int(start_century)
+    end = int(end_century)
+    filtered_century = df[df["Century_nr"].between(start, end)]
+    return filtered_century
+
 

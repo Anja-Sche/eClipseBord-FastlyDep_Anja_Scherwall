@@ -54,6 +54,7 @@ def calculate_century(df):
         np.ceil(df["Year"] / 100),
         np.floor(df["Year"] / 100)
     ).astype(int)
+    df["Century_nr"] = df["Century"]
     return df
     
 def century_name(century):
