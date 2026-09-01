@@ -56,7 +56,9 @@ def calculate_century(df):
     ).astype(int)
     df["Century_nr"] = df["Century"]
     return df
-    
+
+"""   
+
 def century_name(century):
     century_str = str(century)
     if century_str in ["11", "12", "13"]:
@@ -74,3 +76,5 @@ def century_name(century):
         return f"{century_str}{suffix} century BCE"
     else:
         return f"{century_str}{suffix} century"
+
+"""

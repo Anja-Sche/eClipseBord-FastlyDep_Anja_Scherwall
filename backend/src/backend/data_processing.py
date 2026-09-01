@@ -1,6 +1,6 @@
 import pandas as pd
 from backend.constants import DATA_PATH
-from clean_data import clean_column_names, extract_year, convert_duration, convert_ecilpse_type, calculate_century, century_name
+from clean_data import clean_column_names, extract_year, convert_duration, convert_ecilpse_type, calculate_century #century_name
 
 """Read and clean data"""
 df = pd.read_csv(DATA_PATH / "lunar.csv")
@@ -9,7 +9,7 @@ df = extract_year(df)
 df = convert_duration(df)
 df = convert_ecilpse_type(df)
 df = calculate_century(df)
-df["Century"] = df["Century"].apply(century_name)
+#df["Century"] = df["Century"].apply(century_name)
 
 
 """Create functions to use in API calls"""
