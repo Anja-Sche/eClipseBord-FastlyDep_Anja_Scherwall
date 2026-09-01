@@ -44,7 +44,7 @@ async def century_limit(start, end):
 # Show avg time for eclipses
 @app.get("/lunar/century_avg")
 async def century_avg(start, end):
-    return get_avg_time(start, end)
+    return round(get_avg_time(start, end), 2)
 
 # Show amount in the different types
 @app.get("/lunar/century_types")
