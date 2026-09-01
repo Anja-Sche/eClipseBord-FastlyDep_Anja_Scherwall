@@ -24,7 +24,7 @@ def convert_duration(df):
     return df
 
 # Clarify eclipse types
-def convert_eclpise_type(df):
+def convert_ecilpse_type(df):
     df["Eclipse_Group_Type"] = df["Eclipse_Type"].replace({
         "P": "Partial",
         "N": "Penumbral",
