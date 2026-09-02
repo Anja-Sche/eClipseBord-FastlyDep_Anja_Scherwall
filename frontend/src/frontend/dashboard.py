@@ -8,8 +8,13 @@ BASE_URL = os.getenv("BACKEND_URL","http://127.0.0.1:8000")
 def main():
     st.markdown("# eClipseBord - Lunar")
 
+    st.info("As default you see the three group types of lunar eclipses and is able to filter on ceturies." \
+    "The average duration of the eclipses and the amount for the period you have chosen is also shown.")
+
+    st.html("<div style='height: 10px;'></div")
+
     # Separate the page 
-    col1_f, col2_f = st.columns([3, 1])
+    col1_f, col2_f = st.columns([5, 2])
 
     with col1_f:
         # Put default setting to slider values
@@ -24,9 +29,9 @@ def main():
 
     with col2_f:
         # Create a checkbox
-        show_type = st.checkbox("Click to see the different types of lunar eclipses")
+        show_type = st.checkbox("All types of lunar eclipses")
         
-    st.html("<div style='height: 20px;'></div")
+    
 
     col1, col2 = st.columns([3, 6])
 
@@ -40,8 +45,6 @@ def main():
         amount_eclipses = httpx.get(f"{BASE_URL}/lunar/century_lunar_amount?start={start}&end={end}", timeout=30.0).json()
         st.metric("Amount of eclipses", amount_eclipses)
 
-    st.html("<div style='height: 20px;'></div")
-
     # If checkbox is clicked -> show different eclipse types
     if show_type:
             type_eclipse = httpx.get(f"{BASE_URL}/lunar/century_types?start={start}&end={end}", timeout=30.0).json()
@@ -54,6 +57,11 @@ def main():
         list(type_eclipse.items()), columns=["type", "number"])
     st.bar_chart(type_eclipse, x="type" , y="number", x_label="Type of Eclipse", y_label="Amount of Eclipses")
 
+    with st.expander("Click for information about Lunar Eclipse"):
+            st.write("Lunar eclipses occur at the full Moon phase. When Earth is positioned precisely between the Moon and Sun, " \
+            "Earth’s shadow falls upon the surface of the Moon, dimming it and sometimes turning the lunar surface a striking red over the course of a few hours. " \
+            "Each lunar eclipse is visible from half of Earth.")
+            st.write("-NASA (https://science.nasa.gov/moon/eclipses/)")
 
 if __name__ == "__main__":
     main()
