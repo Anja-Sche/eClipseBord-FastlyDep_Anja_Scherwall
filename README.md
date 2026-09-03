@@ -1,6 +1,6 @@
 # Project eClipseBord for FastlyDep
 
-eClipseBord is a project with the purpose to use several techstacks to a fullstack application for deployment. The end product will be a deployed dashboard with data about lunar eclipses
+eClipseBord is a project with the purpose to use several techstacks to a fullstack application for deployment. The end product will be a deployed dashboard with data about lunar eclipses.
 
 ## First step EDA
 Exploratory Data Analysis (EDA) is used to understand the data before you start working with it. For example you can look at how many rows of data there is, what columns there are and what kind of data you have to work with.
@@ -32,10 +32,13 @@ Exploratory Data Analysis (EDA) is used to understand the data before you start 
     - **Backend container** - FastAPI with data processing
     - Enables independent updates of frontend and backend
 
+- **Terraform** – Infrastructure as Code tool used to create and manage Azure resources (like App Services and Container Registry) 
+through configuration files, instead of manual clicks in the portal.
+
 
 ### Infrastructure & Cloud
 
-- **Azure** - 
+- **Azure** - Cloud platform where the application is hosted. It provides the environment where the containers run and makes the app available online via public web links.
 
 
 ## Want to try it out?
@@ -77,3 +80,6 @@ docker compose up -d --build
 # Stop all containers
 docker compose down
 ```
+
+### Creator 
+Anja Scherwall

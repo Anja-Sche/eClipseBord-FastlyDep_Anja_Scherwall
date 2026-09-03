@@ -5,7 +5,8 @@ services:
       context: .
       dockerfile: dockerfiles/backend.dockerfile
     ports:
-    - "8000:8000"
+      - "8000:8000"
+    image: ${ACR_LOGIN_SERVER}/backend:${IMAGE_TAG:-latest}
 
   frontend:
     container_name: frontend
@@ -16,3 +17,4 @@ services:
       - "8501:8501"
     environment: 
       BACKEND_URL: http://backend:8000
+    image: ${ACR_LOGIN_SERVER}/frontend:${IMAGE_TAG:-latest}
